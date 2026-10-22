@@ -76,6 +76,7 @@ type Cgroup interface {
 	// subsystems are moved one at a time
 	MoveTo(Cgroup) error
 	// Stat returns the stats for all subsystems in the cgroup
+	// Use StatFiltered to collect metrics for selected subsystems.
 	Stat(...ErrorHandler) (*v1.Metrics, error)
 	// Update updates all the subsystems with the provided resource changes
 	Update(resources *specs.LinuxResources) error
